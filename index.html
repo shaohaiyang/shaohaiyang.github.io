@@ -10,6 +10,14 @@
 <body>
   <div id="app"></div>
 </body>
+<style>
+  /* 强制主体内容区域左对齐 */
+  .markdown-section {
+    max-width: 80% !important; /* 增加宽度，防止在大屏下显得太窄 */
+    margin: 0 !important;      /* 移除居中的自动边距，强制靠左 */
+    text-align: left !important; /* 确保所有文本默认左对齐 */
+  }
+</style>
 
 <script>
   window.$docsify = {

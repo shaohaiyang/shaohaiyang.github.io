@@ -10,8 +10,8 @@
 | **职位** | 高级运维架构师 / 技术总监 |
 | **工作年限** | 24年 |
 | **联系方式** | 13396815591 / shaohaiyang@gmail.com |
-| **个人博客** | shaohy.17geek.fun |
-| **GitHub** | github.com/shaohaiyang |
+| **个人博客** | http://shaohy.17geek.fun |
+| **GitHub** | https://github.com/shaohaiyang |
 
 ---
 
