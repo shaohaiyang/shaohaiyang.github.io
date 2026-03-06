@@ -6,14 +6,42 @@
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
+
 <style>
-  /* 强制主体内容区域左对齐 */
+  /* 1. 强制重置内容容器：Docsify 默认居中是通过 margin: 0 auto 实现的 */
   .markdown-section {
-    max-width: 80% !important; /* 增加宽度，防止在大屏下显得太窄 */
-    margin: 0 !important;      /* 移除居中的自动边距，强制靠左 */
-    text-align: left !important; /* 确保所有文本默认左对齐 */
+    max-width: 90% !important; /* 扩大容器宽度，默认只有 800px */
+    margin: 0 !important;      /* 核心：将 margin-left 从 auto 改为 0，彻底靠左 */
+    padding-left: 20px !important; 
+    text-align: left !important;
+  }
+
+  /* 2. 针对 Docsify 可能存在的 Flex 布局父容器进行修正 */
+  section.content {
+    left: 0 !important;
+    right: auto !important;
+    width: 100% !important;
+    display: block !important; /* 强制块级显示，防止 Flex 居中 */
+  }
+
+  /* 3. 递归强制所有子元素左对齐（防止标题、段落继承了其他居中样式） */
+  .markdown-section h1, 
+  .markdown-section h2, 
+  .markdown-section h3, 
+  .markdown-section p, 
+  .markdown-section ul, 
+  .markdown-section li {
+    text-align: left !important;
+    margin-left: 0 !important;
+  }
+
+  /* 4. 如果你没有开启侧边栏(Sidebar)，Docsify 会自动居中 content，需强制拉伸 */
+  body.ready .content {
+    position: static !important;
+    padding-top: 20px;
   }
 </style>
+
 </head>
 <body>
   <div id="app"></div>
