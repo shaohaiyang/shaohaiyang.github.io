@@ -8,39 +8,96 @@
 <!--
   <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
 -->
-
 <style>
-  /* 1. 强制重置内容容器：Docsify 默认居中是通过 margin: 0 auto 实现的 */
+  /* 现代简约简历样式 */
+  :root {
+    --main-color: #2c3e50;
+    --accent-color: #3498db;
+    --bg-color: #f9f9f9;
+    --text-color: #333;
+    --line-height: 1.7;
+  }
+
+  body {
+    background-color: var(--bg-color);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--text-color);
+    line-height: var(--line-height);
+    margin: 0;
+    padding: 0;
+  }
+
+  /* 核心容器：限制宽度并保持居中，但内部文字靠左 */
   .markdown-section {
-    max-width: 90% !important; /* 扩大容器宽度，默认只有 800px */
-    margin: 0 !important;      /* 核心：将 margin-left 从 auto 改为 0，彻底靠左 */
-    padding-left: 20px !important; 
+    max-width: 900px;
+    margin: 40px auto !important;
+    padding: 60px 80px !important;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border-radius: 4px;
+    text-align: left !important; /* 强制左对齐 */
+  }
+
+  /* 标题美化 */
+  h1 {
+    font-size: 2.5rem;
+    color: var(--main-color);
+    border-bottom: 2px solid var(--main-color);
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    text-align: center; /* 唯独名字/主标题可以居中 */
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    border-left: 4px solid var(--accent-color);
+    padding-left: 12px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    background: rgba(52, 152, 219, 0.05);
+  }
+
+  h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: 20px;
+  }
+
+  /* 列表与链接 */
+  ul { padding-left: 20px; }
+  li { margin-bottom: 8px; }
+  
+  a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  a:hover { text-decoration: underline; }
+
+  /* 强化的左对齐规则 */
+  p, li, blockquote, table {
     text-align: left !important;
   }
 
-  /* 2. 针对 Docsify 可能存在的 Flex 布局父容器进行修正 */
-  section.content {
-    left: 0 !important;
-    right: auto !important;
-    width: 100% !important;
-    display: block !important; /* 强制块级显示，防止 Flex 居中 */
+  /* 打印优化：保证导出 PDF 时也是这个样子 */
+  @media print {
+    body { background: white; }
+    .markdown-section {
+      box-shadow: none;
+      margin: 0 !important;
+      padding: 20px !important;
+      max-width: 100%;
+    }
+    .github-corner { display: none; } /* 打印时隐藏不必要元素 */
   }
 
-  /* 3. 递归强制所有子元素左对齐（防止标题、段落继承了其他居中样式） */
-  .markdown-section h1, 
-  .markdown-section h2, 
-  .markdown-section h3, 
-  .markdown-section p, 
-  .markdown-section ul, 
-  .markdown-section li {
-    text-align: left !important;
-    margin-left: 0 !important;
-  }
-
-  /* 4. 如果你没有开启侧边栏(Sidebar)，Docsify 会自动居中 content，需强制拉伸 */
-  body.ready .content {
-    position: static !important;
-    padding-top: 20px;
+  /* 移动端适配 */
+  @media (max-width: 768px) {
+    .markdown-section {
+      margin: 10px !important;
+      padding: 30px 20px !important;
+    }
   }
 </style>
 
