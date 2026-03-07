@@ -99,17 +99,26 @@
       padding: 30px 20px !important;
     }
   }
+
+body.no-sidebar .sidebar,
+body.no-sidebar .sidebar-toggle {
+    display: none !important;
+}
+
+body.no-sidebar .content {
+    left: 0px !important;
+}
 </style>
 
 </head>
-<body>
+<body class="no-sidebar">
   <div id="app"></div>
 </body>
 
 <script>
   window.$docsify = {
 loadNavbar: false,
-loadSidebar: '_nav.md',
+loadSidebar: false,
 coverpage: '_cover.md',
     repo: 'shaohaiyang'
   }
